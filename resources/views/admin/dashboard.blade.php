@@ -315,13 +315,13 @@
                         </li>
                         
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Manufecture<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Question<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{{URL::to('/manufecture/add')}}">Add Manufecture</a>
+                                    <a href="{{URL::to('/question/add')}}">Add Question</a>
                                 </li>
                                 <li>
-                                    <a href="{{URL::to('/manufecture/manage')}}">Manage Manufecture</a>
+                                    <a href="{{URL::to('/question/manage')}}">Manage Question</a>
                                 </li>
                             </ul>
                            
