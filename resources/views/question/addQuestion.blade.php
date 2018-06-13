@@ -4,6 +4,16 @@
 <h3 class="text-success text-center">{{Session::get('message')}}</h3>
 
 <div class="form-group">
+    <label for="category">Select Category</label>
+    <select class="form-control" name="categoryId">
+    <option>Select Category</option>
+    @foreach($categories as $category)
+    <option value="{{$category->id}}">{{$category->category_name}}</option>
+    @endforeach
+  </select>
+</div>
+
+<div class="form-group">
     <label for="question">Question</label>
     <input id="question" name="question" class="form-control" type="text">
 </div>

@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Question;
+use App\Category;
+use DB;
 
 class QuestionController extends Controller
 {
     public function add_question(){
-        return view('question.addQuestion');
+        $category= Category::all();
+        return view('question.addQuestion',['categories'=>$category]);
     }
     public function store_question(Request $request){
         $question=new Question();
+        $question->categoryId=$request->categoryId;
         $question->question=$request->question;
         $question->option_a=$request->option_a;
         $question->option_b=$request->option_b;
@@ -22,7 +26,14 @@ class QuestionController extends Controller
         return back()->with('message','Question added successfully');
     }
     public function manage_question(){
-        $question= Question::all();
+        //$question= Question::all();
+        $question=DB::table('questions')
+                ->join('categories','categories.id','=','questions.categoryId')
+                ->select('questions.id','questions.question','questions.option_a',
+                        'questions.option_b','questions.option_c','questions.option_d',
+                        'questions.answer','categories.category_name'
+                        )
+                ->get();
         return view('question.manageQuestion',['questions'=>$question]);
     }
     public function edit_question($id){

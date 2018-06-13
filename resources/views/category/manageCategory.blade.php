@@ -16,36 +16,29 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Category</th>
-                            <th>Question</th>
-                            <th>Option A</th>
-                            <th>Option B</th>
-                            <th>Option C</th>
-                            <th>Option D</th>
-                            <th>Correct Ans</th>
+
+                            <th>Category Name</th>
+                            <th>Description</th>
+                            
                             <th>Actions</th>
 
                         </tr> 
                     </thead>
                     <tbody>
 
-                        @foreach ($questions as $question)  
+                        @foreach ($categories as $category)  
                         <tr>
 
 
-                            <td>{{$question->id}}</td>
-                            <td>{{$question->category_name}}</td>
-                            <td>{{$question->question}}</td>
-                            <td>{{$question->option_a}}</td>
-                            <td>{{$question->option_b}}</td>
-                            <td>{{$question->option_c}}</td>
-                            <td>{{$question->option_d}}</td>
-                            <td>{{$question->answer}}</td>
-                            
+                            <td>{{$category->id}}</td>
 
-                            <td><a href="{{url('/edit/question/'.$question->id)}}" class="btn btn-success">
+
+                            <td>{{$category->category_name}}</td>
+                            <td>{{$category->category_description}}</td>
+                            
+                            <td><a href="{{url('/edit/category/'.$category->id)}}" class="btn btn-success">
                                     <span class="glyphicon glyphicon-edit"></span></a>
-                                <a href="{{url('/delete/question/'.$question->id)}}" class="btn btn-danger" onclick="return confirm('Are You sure to delete this');">
+                                <a href="{{url('/delete/category/'.$category->id)}}" class="btn btn-danger" onclick="return confirm('Are You sure to delete this');">
 
                                     <span class="glyphicon glyphicon-trash"></span></a>
 
